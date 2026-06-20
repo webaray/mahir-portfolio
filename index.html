@@ -359,7 +359,7 @@
     </div>
 
     <!-- Mobile menu button -->
-    <button id="mobileMenuBtn" class="lg:hidden flex flex-col gap-1.5 w-8 h-8 items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <button id="mobileMenuBtn" class="lg:hidden flex flex-col gap-1.5 w-8 h-8 items-center justify-center bg-white/10" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span class="block w-6 h-[2px] bg-white transition-all duration-300" id="bar1"></span>
       <span class="block w-6 h-[2px] bg-white transition-all duration-300" id="bar2"></span>
       <span class="block w-4 h-[2px] bg-white self-end transition-all duration-300" id="bar3"></span>
@@ -367,7 +367,7 @@
   </nav>
 
   <!-- Mobile menu panel -->
-  <div id="mobileMenu" class="lg:hidden fixed inset-0 top-20 bg-void/98 backdrop-blur-sm z-30 hidden flex-col px-6 py-10 gap-6 font-body text-lg border-t border-hairline">
+  <div id="mobileMenu" class="lg:hidden fixed inset-0 top-20 bg-black/98 backdrop-blur-lg z-30 hidden flex-col px-6 py-10 gap-6 font-body text-lg border-t border-hairline">
     <a href="#about" class="mobile-link py-2 border-b border-hairline text-muted hover:text-white">About</a>
     <a href="#services" class="mobile-link py-2 border-b border-hairline text-muted hover:text-white">Services</a>
     <a href="#portfolio" class="mobile-link py-2 border-b border-hairline text-muted hover:text-white">Portfolio</a>
@@ -640,6 +640,48 @@
     </div>
   </section>
 
+
+  
+  <!-- ============ PORTFOLIO SHOWCASE SECTION ============ -->
+  <section id="portfolio" class="relative py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+        <div class="max-w-2xl">
+          <p class="reveal timecode text-xs text-signal uppercase mb-4">00:03 — Portfolio</p>
+          <h2 class="reveal reveal-delay-1 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5">
+            Featured Projects
+          </h2>
+          <p class="reveal reveal-delay-2 font-body text-muted text-lg leading-relaxed">
+            A selection of long-form and short-form work, edited for retention, clarity, and impact.
+          </p>
+        </div>
+
+        <!-- Filter controls -->
+        <div class="reveal reveal-delay-2 flex items-center gap-2 bg-panel/60 border border-hairline rounded-full p-1.5 self-start lg:self-auto" role="tablist" aria-label="Filter portfolio by category">
+          <button class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300" data-filter="long" role="tab" aria-selected="false">Long-Form</button>
+          <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300" data-filter="short" role="tab" aria-selected="false">Shorts</button>
+        </div>
+      </div>
+
+      <!-- Portfolio grid -->
+      <div id="portfolioGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards injected by JS from videoData -->
+      </div>
+    </div>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="fixed inset-0 z-[90] hidden items-center justify-center bg-void/95 backdrop-blur-sm p-4 sm:p-8" role="dialog" aria-modal="true" aria-label="Video preview">
+      <button id="lightboxClose" aria-label="Close video preview" class="absolute top-5 right-5 sm:top-8 sm:right-8 w-11 h-11 rounded-full bg-panel border border-hairline flex items-center justify-center hover:border-signal transition-colors z-10">
+        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="lightboxContent" class="w-full max-h-full">
+        <!-- iframe injected by JS -->
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SERVICES SECTION ============ -->
   <section id="services" class="relative py-28 lg:py-36 bg-panel/30 border-y border-hairline">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
@@ -759,45 +801,6 @@
     </div>
   </section>
 
-  <!-- ============ PORTFOLIO SHOWCASE SECTION ============ -->
-  <section id="portfolio" class="relative py-28 lg:py-36">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-        <div class="max-w-2xl">
-          <p class="reveal timecode text-xs text-signal uppercase mb-4">00:03 — Portfolio</p>
-          <h2 class="reveal reveal-delay-1 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5">
-            Featured Projects
-          </h2>
-          <p class="reveal reveal-delay-2 font-body text-muted text-lg leading-relaxed">
-            A selection of long-form and short-form work, edited for retention, clarity, and impact.
-          </p>
-        </div>
-
-        <!-- Filter controls -->
-        <div class="reveal reveal-delay-2 flex items-center gap-2 bg-panel/60 border border-hairline rounded-full p-1.5 self-start lg:self-auto" role="tablist" aria-label="Filter portfolio by category">
-          <button class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300" data-filter="all" role="tab" aria-selected="true">All</button>
-          <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300" data-filter="long" role="tab" aria-selected="false">Long-Form</button>
-          <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300" data-filter="short" role="tab" aria-selected="false">Shorts</button>
-        </div>
-      </div>
-
-      <!-- Portfolio grid -->
-      <div id="portfolioGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Cards injected by JS from videoData -->
-      </div>
-    </div>
-
-    <!-- Lightbox modal -->
-    <div id="lightbox" class="fixed inset-0 z-[90] hidden items-center justify-center bg-void/95 backdrop-blur-sm p-4 sm:p-8" role="dialog" aria-modal="true" aria-label="Video preview">
-      <button id="lightboxClose" aria-label="Close video preview" class="absolute top-5 right-5 sm:top-8 sm:right-8 w-11 h-11 rounded-full bg-panel border border-hairline flex items-center justify-center hover:border-signal transition-colors z-10">
-        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-      <div id="lightboxContent" class="w-full max-h-full">
-        <!-- iframe injected by JS -->
-      </div>
-    </div>
-  </section>
 
   <!-- ============ WHY CHOOSE ME SECTION ============ -->
   <section class="relative py-28 lg:py-36 bg-panel/30 border-y border-hairline overflow-hidden">
